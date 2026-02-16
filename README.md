@@ -1,45 +1,54 @@
 # Clarity AI
 
-A minimal, production-ready MERN stack application that turns complex text into one clear sentence using OpenAI.
+Clarity AI is a minimal, production-ready MERN stack application that converts unclear or complex thoughts into **one clear sentence**.
 
-## Prerequisites
+It is intentionally focused:
+- No chat
+- No advice
+- No explanations
+- Just clarity
 
-- Node.js installed.
-- OpenAI API Key.
+---
 
-## Setup
+## ✨ Features
 
-1. **Backend**:
-   ```bash
-   cd server
-   npm install
-   ```
-   - Create a `.env` file in `server/` with:
-     ```
-     PORT=5000
-     OPENAI_API_KEY=your_api_key_here
-     ```
+- One input → one clear sentence
+- Professional, human-readable output
+- Strict single-sentence response
+- Fast AI responses powered by **Groq (LLaMA 3)**
+- Clean, anti-gravity UI
+- No authentication
+- No database
 
-2. **Frontend**:
-   ```bash
-   cd client
-   npm install
-   ```
+---
 
-## Running the App
+## 🛠 Tech Stack
 
-1. Start the backend:
-   ```bash
-   cd server
-   npm start
-   ```
-   (Server runs on http://localhost:5000)
+- **Frontend:** React (Vite)
+- **Backend:** Node.js, Express
+- **AI Provider:** Groq (LLaMA 3)
+- **Styling:** Modern dark UI (minimal, professional)
 
-2. Start the frontend:
-   ```bash
-   cd client
-   npm run dev
-   ```
-   (Frontend runs on http://localhost:5173)
+---
 
-3. Open the frontend URL, enter text, and click "Clarify".
+## 📦 Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v18 or later)
+- npm
+- A Groq API key
+
+You can get a free Groq API key from:  
+👉 https://console.groq.com
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/amankumar-source/Clarity-AI-.git
+cd clarity-ai
+
