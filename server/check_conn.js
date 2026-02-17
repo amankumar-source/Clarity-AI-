@@ -6,7 +6,7 @@ const data = JSON.stringify({
 
 const options = {
     hostname: 'localhost',
-    port: 5001,
+    port: 8080,
     path: '/api/clarify',
     method: 'POST',
     headers: {

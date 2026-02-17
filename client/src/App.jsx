@@ -25,7 +25,7 @@ function App() {
     setCopied(false);
 
     // Use environment variable for API URL (Vercel) or default to localhost
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api/clarify';
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/clarify';
 
     try {
       const response = await fetch(API_URL, {
