@@ -4,12 +4,7 @@ const cors = require('cors');
 const Groq = require('groq-sdk');
 
 const app = express();
-const port = process.env.PORT || 8080;
-
-
-app.get("/", (req, res) => {
-    res.send("Clarity AI backend running");
-});
+const port = process.env.PORT || 5001;
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN || '*', // Allow all if not specified (for testing)
