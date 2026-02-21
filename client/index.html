@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/clarity-logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clarity AI</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- SEO -->
+  <title>Clarity AI — Simplify Overthinking Into One Clear Idea</title>
+  <meta name="description"
+    content="Clarity AI uses Groq Llama 3 to distill your complex thoughts, confusion, or overthinking into a single, clear sentence. Instant mental clarity." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (LinkedIn, Facebook sharing) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clarity-ai.vercel.app/" />
+  <meta property="og:title" content="Clarity AI — One Clear Idea" />
+  <meta property="og:description"
+    content="Paste your complex thought and get one crystal-clear sentence back. Powered by Groq Llama 3." />
+  <meta property="og:image" content="/clarity-logo.svg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Clarity AI" />
+  <meta name="twitter:description" content="Simplify overthinking into one clear idea, instantly." />
+
+  <!-- Theme color for mobile browser chrome (dark + light) -->
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/clarity-logo.svg" />
+
+  <!--
+      Preconnect to Google Fonts domains so the browser opens the TCP/TLS
+      connection early, reducing the render-blocking latency from ~200–400 ms
+      down to near zero when the stylesheet eventually loads.
+    -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!--
+      Use <link> instead of @import so the font loads in parallel with other
+      resources rather than being blocked behind the CSS parse step.
+      display=swap prevents invisible text during font load (good for CLS/FID).
+    -->
+  <!--
+      Preload the font stylesheet so the browser fetches it at highest
+      priority in parallel with the HTML parse, saving one extra RTT.
+      The matching <link rel="stylesheet"> below still handles the actual
+      CSS application.
+    -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    onload="this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </noscript>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

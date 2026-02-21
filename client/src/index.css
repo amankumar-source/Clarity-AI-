@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/*
+  Font is now loaded via <link> in index.html (not @import here).
+  @import blocks the CSS parser; a preconnect+<link> in HTML loads it in
+  parallel and doesn't block rendering.
+*/
 
 @tailwind base;
 @tailwind components;
@@ -8,18 +12,45 @@
   body {
     @apply font-sans bg-[#0a0a0a] text-gray-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200;
     font-family: 'Inter', sans-serif;
+    /*
+      Opt in to smooth scrolling at the root. Using 'smooth' here rather than
+      JS scroll lets the browser use its native, compositor-threaded animation
+      (zero JS jank) and respects prefers-reduced-motion when combined with the
+      media query below.
+    */
+    scroll-behavior: smooth;
+  }
+
+  /* Respect reduced-motion preference — no animations at all */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.4s ease-out forwards;
+    /*
+      contain: layout style — tells the browser that layout/style changes
+      inside this element do not affect elements outside it.
+      When the fade-in animation runs, the browser skips a full-page
+      layout recalculation and only processes this subtree.
+    */
+    contain: layout style;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(8px);
     }
 
     to {

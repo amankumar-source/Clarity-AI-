@@ -1,2 +1,8 @@
 node_modules
 .env
+
+# Debug and test scripts — local use only, not for version control
+check_conn.js
+debug_*.js
+test_*.js
+test_curl.ps1
