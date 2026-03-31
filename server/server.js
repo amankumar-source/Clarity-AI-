@@ -182,7 +182,7 @@ app.post('/api/clarify', async (req, res) => {
 
     // ── Groq API call ──────────────────────────────────────────────────────────
     try {
-        const completion = await groq.chat.completions.create({
+        const stream = await groq.chat.completions.create({
             messages: [
                 { role: 'system', content: SYSTEM_PROMPT },
                 { role: 'user', content: trimmed },
@@ -200,10 +200,21 @@ app.post('/api/clarify', async (req, res) => {
               Does not change behaviour in a user-visible way.
             */
             temperature: 0.3,
+            stream: true,
         });
 
-        const clarification = completion.choices[0]?.message?.content ?? '';
-        return res.json({ clarification: clarification.trim() });
+        // Set up Server-Sent Events
+        res.setHeader('Content-Type', 'text/event-stream');
+        res.setHeader('Connection', 'keep-alive');
+
+        for await (const chunk of stream) {
+            const content = chunk.choices[0]?.delta?.content || '';
+            if (content) {
+                res.write(`data: ${JSON.stringify({ text: content })}\n\n`);
+            }
+        }
+        res.write('data: [DONE]\n\n');
+        return res.end();
 
     } catch (error) {
         /*
